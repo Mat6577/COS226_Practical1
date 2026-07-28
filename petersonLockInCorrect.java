@@ -9,18 +9,17 @@ public class petersonLockInCorrect extends Thread {
         id=count++;
     }
 
+    // Entering the critical section
     @Override
     public void run() {
-        for (int i = 0; i < 5; i++) {
-            lock.inCorrectLock(this.id);
-            try {
-                int shared = 0;
-                shared = shared + 1;
-                shared = shared + 1;
-                System.out.print("+ Thread: " + this.id + " is in the critical section.\n");
-            } finally {
-                lock.unlock(this.id);
-            }
+        lock.inCorrectLock(this.id);
+        try {
+            int shared = 0;
+            shared = shared + 1;
+            shared = shared + 1;
+            System.out.print("+ Thread: " + this.id + " is in the critical section.\n");
+        } finally {
+            lock.unlock(this.id);
         }
     }
 }

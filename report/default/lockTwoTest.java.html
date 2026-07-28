@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>lockTwoTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCo Coverage Report</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">lockTwoTest.java</span></div><h1>lockTwoTest.java</h1><pre class="source lang-java linenums"><span class="nc" id="L1">class lockTwoTest extends Thread implements lock  {</span>
+    public static int victim;
+    // Implementing the locking algorithm
+    @Override
+    public void lock(int i) {
+<span class="nc" id="L6">        victim = i;</span>
+<span class="nc bnc" id="L7" title="All 2 branches missed.">        while(victim == i) {</span>
+<span class="nc" id="L8">            System.out.println(&quot;Thread: &quot; + i + &quot; is waiting.&quot;);</span>
+<span class="nc" id="L9">            System.out.println(&quot;victim = &quot; + i + &quot;\n&quot;);</span>
+        }
+<span class="nc" id="L11">    }</span>
+    
+    @Override
+    public void unlock(int i) {
+<span class="nc" id="L15">        System.out.println(&quot;Thread: &quot; + i + &quot; is out the critical section.&quot;);</span>
+<span class="nc" id="L16">    }</span>
+
+    // Main for testing the lockOne lock algorithm
+    public static void main(String[] args) {
+<span class="nc bnc" id="L20" title="All 3 branches missed.">        switch (args[0]){</span>
+            case &quot;1&quot;: {
+<span class="nc" id="L22">                lockTwo thread0 = new lockTwo();</span>
+<span class="nc" id="L23">                lockTwo thread1 = new lockTwo();</span>
+
+                // Running them concurrently
+<span class="nc" id="L26">                thread0.start();</span>
+<span class="nc" id="L27">                thread1.start();</span>
+<span class="nc" id="L28">                break; </span>
+            }  
+            case &quot;2&quot;: {
+<span class="nc" id="L31">                lockTwo thread0 = new lockTwo();</span>
+<span class="nc" id="L32">                lockTwo thread1 = new lockTwo();</span>
+
+                // Running them sequentially
+<span class="nc" id="L35">                thread0.run();</span>
+<span class="nc" id="L36">                thread1.run();</span>
+<span class="nc" id="L37">                break; </span>
+            }     
+<span class="nc" id="L39">            default: return;       </span>
+        }
+<span class="nc" id="L41">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.15.202606040825</span></div></body></html>

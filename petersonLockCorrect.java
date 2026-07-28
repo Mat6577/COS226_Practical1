@@ -9,6 +9,7 @@ public class petersonLockCorrect extends Thread {
         id=count++;
     }
 
+    // Entering the critical section
     @Override
     public void run() {
         lock.correctLock(this.id);

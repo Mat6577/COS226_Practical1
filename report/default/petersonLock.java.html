@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>petersonLock.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCo Coverage Report</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">petersonLock.java</span></div><h1>petersonLock.java</h1><pre class="source lang-java linenums"><span class="fc" id="L1">public class petersonLock {</span>
+<span class="fc" id="L2">    public static boolean[] flag = {false, false};</span>
+
+    public static int victim;
+    // Implementing the locking algorithm
+    public void correctLock(int i) {
+<span class="fc" id="L7">        flag[i] = true;</span>
+<span class="fc" id="L8">        int j = 1 - i;</span>
+<span class="fc" id="L9">        victim = i;</span>
+<span class="pc bpc" id="L10" title="1 of 4 branches missed.">        while(flag[j] &amp;&amp; victim == i) {</span>
+<span class="fc" id="L11">            System.out.println(&quot;+ Thread: &quot; + i + &quot; is waiting.&quot;);</span>
+        }
+<span class="fc" id="L13">    }</span>
+
+    public void inCorrectLock(int i) {
+<span class="nc" id="L16">        victim = i;</span>
+<span class="nc" id="L17">        flag[i] = true;</span>
+<span class="nc" id="L18">        int j = 1 - i;</span>
+
+<span class="nc bnc" id="L20" title="All 4 branches missed.">        while(flag[j] &amp;&amp; victim == i) {</span>
+<span class="nc" id="L21">            System.out.println(&quot;+ Thread: &quot; + i + &quot; is waiting.&quot;);</span>
+        }
+<span class="nc" id="L23">    }</span>
+    
+    public void unlock(int i) {
+<span class="fc" id="L26">        System.out.println(&quot;- Thread: &quot; + i + &quot; is out the critical section.\n&quot;);</span>
+<span class="fc" id="L27">        flag[i] = false;</span>
+<span class="fc" id="L28">    }</span>
+
+    // Main for testing the lockOne lock algorithm
+    public static void main(String[] args) {
+<span class="pc bpc" id="L32" title="2 of 3 branches missed.">        switch (args[0]){</span>
+            case &quot;1&quot;: {
+<span class="fc" id="L34">                petersonLockCorrect thread0 = new petersonLockCorrect();</span>
+<span class="fc" id="L35">                petersonLockCorrect thread1 = new petersonLockCorrect();</span>
+
+<span class="fc" id="L37">                thread0.start();</span>
+<span class="fc" id="L38">                thread1.start();</span>
+<span class="fc" id="L39">                break; </span>
+            }  
+            case &quot;2&quot;: {
+<span class="nc" id="L42">                petersonLockInCorrect thread0 = new petersonLockInCorrect();</span>
+<span class="nc" id="L43">                petersonLockInCorrect thread1 = new petersonLockInCorrect();</span>
+
+<span class="nc" id="L45">                thread0.start();</span>
+<span class="nc" id="L46">                thread1.start();</span>
+<span class="nc" id="L47">                break; </span>
+            }     
+<span class="nc" id="L49">            default: return;       </span>
+        }
+
+
+<span class="fc" id="L53">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.15.202606040825</span></div></body></html>

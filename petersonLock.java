@@ -9,7 +9,6 @@ public class petersonLock {
         victim = i;
         while(flag[j] && victim == i) {
             System.out.println("+ Thread: " + i + " is waiting.");
-            System.out.println("victim = " + i + "\n");
         }
     }
 
@@ -32,16 +31,16 @@ public class petersonLock {
     public static void main(String[] args) {
         switch (args[0]){
             case "1": {
-                petersonLockInCorrect thread0 = new petersonLockInCorrect();
-                petersonLockInCorrect thread1 = new petersonLockInCorrect();
+                petersonLockCorrect thread0 = new petersonLockCorrect();
+                petersonLockCorrect thread1 = new petersonLockCorrect();
 
                 thread0.start();
                 thread1.start();
                 break; 
             }  
             case "2": {
-                petersonLockCorrect thread0 = new petersonLockCorrect();
-                petersonLockCorrect thread1 = new petersonLockCorrect();
+                petersonLockInCorrect thread0 = new petersonLockInCorrect();
+                petersonLockInCorrect thread1 = new petersonLockInCorrect();
 
                 thread0.start();
                 thread1.start();
@@ -49,5 +48,7 @@ public class petersonLock {
             }     
             default: return;       
         }
+
+
     }
 }
