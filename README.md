@@ -61,9 +61,18 @@ Navigate to the project
 cd ../COS226_Practical1
 ```
 - Note: Ensure that you have a java compiler installed in your system
+- Note: Test must be followed by a values 1 to 6, they represent the following:
+|No|Description|
+|:-|:---------:|
+|1|Deadlock prone lockOne|
+|2|No-Deadlock lockOne|
+|3|Running them concurrently - lockTwo|
+|4|Running them sequentially - lockTwo|
+|5|petersonLock with correct initialization|
+|6|petersonLock with incorrect initialization|
 
 Run the project
 ```bash
 javac *.java
-java test
+java test X
 ```
