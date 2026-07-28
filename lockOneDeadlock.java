@@ -2,7 +2,6 @@
 public class lockOneDeadlock extends Thread {
     public static int count = 0;
 
-    public int i = 0;
     public int id;
     lockOne lock = new lockOne();
 
@@ -12,7 +11,8 @@ public class lockOneDeadlock extends Thread {
 
     @Override
     public void run() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) { 
+            // The iteration will cause a deadlock as we will reach a point where two threads want to enter the CS
             lock.lock(this.id);
             try {
                 int shared = 0;

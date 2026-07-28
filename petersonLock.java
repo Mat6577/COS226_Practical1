@@ -26,29 +26,4 @@ public class petersonLock {
         System.out.println("- Thread: " + i + " is out the critical section.\n");
         flag[i] = false;
     }
-
-    // Main for testing the lockOne lock algorithm
-    public static void main(String[] args) {
-        switch (args[0]){
-            case "1": {
-                petersonLockCorrect thread0 = new petersonLockCorrect();
-                petersonLockCorrect thread1 = new petersonLockCorrect();
-
-                thread0.start();
-                thread1.start();
-                break; 
-            }  
-            case "2": {
-                petersonLockInCorrect thread0 = new petersonLockInCorrect();
-                petersonLockInCorrect thread1 = new petersonLockInCorrect();
-
-                thread0.start();
-                thread1.start();
-                break; 
-            }     
-            default: return;       
-        }
-
-
-    }
 }
