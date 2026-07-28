@@ -9,7 +9,7 @@ public class petersonLock {
         victim = i;
         while(flag[j] && victim == i) {
             System.out.println("+ Thread: " + i + " is waiting.");
-            // System.out.println("victim = " + i + "\n");
+            System.out.println("victim = " + i + "\n");
         }
     }
 
