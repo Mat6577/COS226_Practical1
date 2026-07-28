@@ -61,7 +61,7 @@ Navigate to the project
 cd ../COS226_Practical1
 ```
 - Note: Ensure that you have a java compiler installed in your system
-**Note:** The `Test` argument must be followed by a number from **1** to **6**. Each number corresponds to one of the following test cases:
+- **Note:** The `Test` argument must be followed by a number from **1** to **6**. Each number corresponds to one of the following test cases:
 
 | No. | Description |
 |:---:|-------------|
