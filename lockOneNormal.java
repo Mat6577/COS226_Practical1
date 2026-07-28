@@ -1,3 +1,4 @@
+
 public class lockOneNormal extends Thread {
     public static int count = 0;
 

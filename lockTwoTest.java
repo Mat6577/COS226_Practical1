@@ -22,6 +22,7 @@ class lockTwoTest extends Thread implements lock  {
                 lockTwo thread0 = new lockTwo();
                 lockTwo thread1 = new lockTwo();
 
+                // Running them concurrently
                 thread0.start();
                 thread1.start();
                 break; 
@@ -30,6 +31,7 @@ class lockTwoTest extends Thread implements lock  {
                 lockTwo thread0 = new lockTwo();
                 lockTwo thread1 = new lockTwo();
 
+                // Running them sequentially
                 thread0.run();
                 thread1.run();
                 break; 
