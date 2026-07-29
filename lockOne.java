@@ -5,7 +5,7 @@ class lockOne extends Thread implements lock  {
         flag[i] = true;
         int j = 1 - i;
         while(flag[j]) {
-            // System.out.println("Thread: " + i + " is waiting.");
+            System.out.println("Thread: " + i + " is waiting.");
         }
     }
     

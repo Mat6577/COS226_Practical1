@@ -5,8 +5,7 @@ class lockTwo extends Thread implements lock  {
     public void lock(int i) {
         victim = i;
         while(victim == i) {
-            // System.out.println("Thread: " + i + " is waiting.");
-            // System.out.println("victim = " + i + "\n");
+            System.out.println("Thread: " + i + " is waiting.");
         }
     }
     

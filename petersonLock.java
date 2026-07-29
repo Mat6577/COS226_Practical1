@@ -8,7 +8,7 @@ public class petersonLock {
         int j = 1 - i;
         victim = i;
         while(flag[j] && victim == i) {
-            // System.out.println("+ Thread: " + i + " is waiting.");
+            System.out.println("Thread: " + i + " is waiting.");
         }
     }
 
@@ -18,12 +18,12 @@ public class petersonLock {
         int j = 1 - i;
 
         while(flag[j] && victim == i) {
-            System.out.println("+ Thread: " + i + " is waiting.");
+            System.out.println("Thread: " + i + " is waiting.");
         }
     }
     
     public void unlock(int i) {
-        System.out.println("- Thread: " + i + " is out the critical section.\n");
+        System.out.println("Thread: " + i + " is out the critical section.\n");
         flag[i] = false;
     }
 }
