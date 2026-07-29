@@ -16,7 +16,6 @@ public class lockOneNormal extends Thread {
         try {
             int shared = 0;
             shared = shared + 1;
-            shared = shared + 1;
             System.out.print("Thread: " + this.id + " is in the critical section.\n");
         } finally {
             lock.unlock(this.id);
