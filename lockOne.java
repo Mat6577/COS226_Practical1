@@ -3,6 +3,7 @@ class lockOne extends Thread implements lock  {
     // Implementing the locking algorithm
     @Override
     public void lock(int i) {
+        if(i<0 || i>=2) return;
         flag[i] = true;
         int j = 1 - i;
         while(flag[j]) {
